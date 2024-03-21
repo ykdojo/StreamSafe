@@ -1,0 +1,39 @@
+{
+    "manifest_version": 2,
+    "name": "Twitch chat pop out",
+    "version": "1.0",
+    "description": "A simple Chrome extension to pop out Twitch chat",
+    "background": {
+      "scripts": [
+        "background.js"
+      ],
+      "persistent": false
+    },
+    "permissions": [
+    ],
+    "icons_commented_out": {
+      "48": "48x48.png"
+    },
+    "browser_action": {
+      "default_title": "Pop out Twitch chat"
+    },
+    "content_scripts": [
+      {
+        "matches": [ "https://www.twitch.tv/popout/ykdojo/chat" ],
+        "js": ["contentScript.js"]
+      },
+      {
+        "matches": [ "<all_urls>" ],
+        "js": ["hideEmailAddresses.js"]
+      },
+      {
+        "matches": [ "https://www.linkedin.com/feed/" ],
+        "js": ["hideLinkedInSuggestedPosts.js"]
+      },
+      {
+        "matches": [ "https://twitter.com/*" ],
+        "js": ["hideTwitterDMDrawer.js"]
+      }
+    ]
+  }
+  
